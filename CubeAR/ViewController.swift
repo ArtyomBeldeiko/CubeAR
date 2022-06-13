@@ -9,24 +9,91 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set the view's delegate
-        sceneView.delegate = self
-        
+      
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene()
+        
+// MARK: - Cube
+        
+        let boxGeometry = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0)
+        
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.brown
+        
+        let boxNode = SCNNode(geometry: boxGeometry)
+        boxNode.geometry?.materials = [material]
+        boxNode.position = SCNVector3(0, 0, -1.0)
+        
+        scene.rootNode.addChildNode(boxNode)
+        
+// MARK: - Text
+        
+        let textGeometry = SCNText(string: "This is your cube", extrusionDepth: 2.0)
+        
+        let textMaterial = SCNMaterial()
+        textMaterial.diffuse.contents = UIColor.white
+        
+        let textNode = SCNNode(geometry: textGeometry)
+        textNode.scale = SCNVector3(0.005, 0.005, 0.005)
+        textNode.geometry?.materials = [textMaterial]
+        
+        textNode.position = SCNVector3(0, 0.2, -1.0)
+        scene.rootNode.addChildNode(textNode)
+        
+// MARK: - Globe
+        
+        let sphereGeometry = SCNSphere(radius: 0.3)
+        
+        let sphereMaterial = SCNMaterial()
+        sphereMaterial.diffuse.contents = UIImage(named: "earth.jpg")
+        
+        let sphereNode = SCNNode(geometry: sphereGeometry)
+        sphereNode.geometry?.materials = [sphereMaterial]
+        
+        sphereNode.position = SCNVector3(1, 1, -1.0)
+        
+        scene.rootNode.addChildNode(sphereNode)
+        
+        createFigures(in: scene)
+        
         
         // Set the scene to the view
         sceneView.scene = scene
+    }
+    
+    private func createFigures(in scene: SCNScene) {
+        
+        let array: [SCNGeometry] = [SCNPlane(), SCNSphere(), SCNBox(), SCNPyramid(), SCNTube(), SCNCone(), SCNTorus(), SCNCylinder(), SCNCapsule()]
+        
+        var xCoordinate: Double = 1
+        
+        sceneView.autoenablesDefaultLighting = true
+        
+        for geometryShape in array {
+            let node = SCNNode(geometry: geometryShape)
+            
+            let material = SCNMaterial()
+            material.diffuse.contents = UIColor.red
+            
+            node.geometry?.materials = [material]
+            node.scale = SCNVector3(0.1, 0.1, 0.1)
+            node.position = SCNVector3(xCoordinate, 0.5, -1.5)
+            
+            xCoordinate -= 0.2
+            
+            scene.rootNode.addChildNode(node)
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
