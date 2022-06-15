@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3988DB81285A56F4004AF445 /* Cube + Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988DB80285A56F4004AF445 /* Cube + Shapes.swift */; };
 		399528BD2857CD9E0075A426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399528BC2857CD9E0075A426 /* AppDelegate.swift */; };
 		399528BF2857CD9E0075A426 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 399528BE2857CD9E0075A426 /* art.scnassets */; };
 		399528C12857CD9E0075A426 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399528C02857CD9E0075A426 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3988DB80285A56F4004AF445 /* Cube + Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cube + Shapes.swift"; sourceTree = "<group>"; };
 		399528B92857CD9E0075A426 /* CubeAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CubeAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		399528BC2857CD9E0075A426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		399528BE2857CD9E0075A426 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				399528BC2857CD9E0075A426 /* AppDelegate.swift */,
 				399528BE2857CD9E0075A426 /* art.scnassets */,
 				399528C02857CD9E0075A426 /* ViewController.swift */,
+				3988DB80285A56F4004AF445 /* Cube + Shapes.swift */,
 				399528D22857DF9B0075A426 /* Helpers */,
 				399528C22857CD9E0075A426 /* Main.storyboard */,
 				399528C52857CD9F0075A426 /* Assets.xcassets */,
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3988DB81285A56F4004AF445 /* Cube + Shapes.swift in Sources */,
 				399528C12857CD9E0075A426 /* ViewController.swift in Sources */,
 				399528BD2857CD9E0075A426 /* AppDelegate.swift in Sources */,
 			);
